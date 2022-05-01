@@ -16,3 +16,9 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True
+
+    def is_substring_present(self, string):
+        if str(self.browser.current_url).find(string) != -1:
+            return True
+        else:
+            return False

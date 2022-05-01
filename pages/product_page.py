@@ -33,3 +33,10 @@ class ProductPage(BasePage):
         basket_price = self.get_product_price(ProductPageLocators.BASKET_PRICE)
         assert product_price == basket_price, "Basket price is not correct"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.BASKET_MESSAGE), "Success message is presented, but " \
+                                                                                  "should not be "
+
+    def should_be_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.BASKET_MESSAGE), "Success message is presented, but " \
+                                                                                  "should not be"
